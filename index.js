@@ -13,7 +13,7 @@ app.use(routes);
 
 app.get('/', (req, res) => {
     res.json({
-        message: "API React - Express - Mongoose - JWT"
+        message: "API React - artShare"
     })
 });
 
