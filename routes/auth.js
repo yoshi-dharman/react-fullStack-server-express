@@ -52,7 +52,7 @@ router.post('/login', (req, res) => {
 
 router.post('/user', (req, res) => {
     const data = jwt.decode(req.body);
-    const dataFUll = jwt.decode(req.body, {complete: true})
+    const dataFULL = jwt.decode(req.body, {complete: true})
 
     console.log(data)
     res.send({
