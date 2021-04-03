@@ -9,6 +9,14 @@ app.get('/', (req, res) => {
     .catch(e => res.status(500).send(e));
 });
 
+app.get('/name/:name', (req, res) => {
+    User.find(
+        {"name": req.params.name}
+    )
+    .then(result => res.send(result))
+    .catch(e => res.status(500).send(e));
+})
+
 app.get('/:id', (req, res) => {
     User.find(
         {"_id": req.params.id}
