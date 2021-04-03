@@ -51,13 +51,11 @@ router.post('/login', (req, res) => {
 })
 
 router.post('/user', (req, res) => {
-    const data = jwt.decode(req.body);
-    const dataFULL = jwt.decode(req.body, {complete: true})
+    const data = jwt.decode(req.body.data);
+    // const dataFULL = jwt.decode(req.body.data, {complete: true})
 
-    console.log(data)
     res.send({
         data : data,
-        dataFULL : dataFULL
     })
 })
 
