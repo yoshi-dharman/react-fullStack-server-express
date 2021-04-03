@@ -30,7 +30,7 @@ router.post('/register', (req, res) => {
 router.post('/login', (req, res) => {
     const {name, password} = req.body;
 
-    User.findOne({name})
+    User.findOne({name}, "-__v")
     .then(result => {
         if(result && bcrypt.compareSync(password, result.password)){
             const {password, ...payload} = result.toObject();
