@@ -50,4 +50,15 @@ router.post('/login', (req, res) => {
     .catch(e => console.log(e));
 })
 
+router.post('/user', (req, res) => {
+    const data = jwt.decode(req.body);
+    const dataFUll = jwt.decode(req.body, {complete: true})
+
+    console.log(data)
+    res.send({
+        data : data,
+        dataFULL : dataFULL
+    })
+})
+
 module.exports = router;
