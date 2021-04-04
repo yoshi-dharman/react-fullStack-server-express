@@ -4,7 +4,7 @@ const { Image } = require('../models/');
 const app = express();
 
 app.get('/', (req, res) => {
-    Image.find({}, "-__v").sort({time: -1})
+    Image.find({}, "-__v").populate("user_id", "-__v -password").sort({time: -1})
     .then(result => res.send(result))
     .catch(e => res.status(500).send(e));
 });
