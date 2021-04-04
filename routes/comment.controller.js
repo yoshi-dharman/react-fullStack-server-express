@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 app.get('/byimage/:id', (req, res) => {
     Comment.find(
         {"image_id" : req.params.id}
-    , "-__v").sort({time: 1})
+    , "-__v").populate("user_id", "-__v -password").sort({time: 1})
     .then(result => res.send(result))
     .catch(e => res.status(500).send(e));
 });
