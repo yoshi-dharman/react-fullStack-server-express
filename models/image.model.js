@@ -9,6 +9,10 @@ const ImageSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    title: {
+        type: String,
+        require: true
+    },
     time: {
         type: Date, 
         default: Date.now

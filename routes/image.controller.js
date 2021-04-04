@@ -4,17 +4,10 @@ const { Image } = require('../models/');
 const app = express();
 
 app.get('/', (req, res) => {
-    Image.find({}, "-__v")
+    Image.find({}, "-__v").sort({time: -1})
     .then(result => res.send(result))
     .catch(e => res.status(500).send(e));
 });
-
-app.post('/file/', (req, res) => {
-    console.log(req.body.file);
-    res.send({
-        message: req.body.file
-    })
-})
 
 app.get('/:id', (req, res) => {
     Image.find(
