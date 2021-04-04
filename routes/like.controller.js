@@ -24,7 +24,7 @@ app.post('/', (req, res) => {
 });
 
 app.delete('/:id', (req, res) => {
-    Like.delete(
+    Like.deleteOne(
         {"_id": req.params.id}
     )
     .then(result => res.send(result))

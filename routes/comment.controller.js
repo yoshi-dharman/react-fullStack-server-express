@@ -37,7 +37,7 @@ app.post('/', (req, res) => {
 });
 
 app.delete('/:id', (req, res) => {
-    Comment.delete(
+    Comment.deleteOne(
         {"_id": req.params.id}
     )
     .then(result => res.send(result))
