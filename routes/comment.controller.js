@@ -3,17 +3,21 @@ const { Comment } = require('../models/');
 
 const app = express();
 
+
+// Comment.find({}, "-__v").sort({time: 1})
 app.get('/', (req, res) => {
     Comment.find({}, "-__v")
     .then(result => res.send(result))
     .catch(e => res.status(500).send(e));
 });
 
-// app.get('/', (req, res) => {
-//     Comment.find({}, "-__v")
-//     .then(result => res.send(result))
-//     .catch(e => res.status(500).send(e));
-// });
+app.get('/byimage/:id', (req, res) => {
+    Comment.find(
+        {"image_id" : req.params.id}
+    , "-__v").sort({time: 1})
+    .then(result => res.send(result))
+    .catch(e => res.status(500).send(e));
+});
 
 app.get('/:id', (req, res) => {
     Comment.find(

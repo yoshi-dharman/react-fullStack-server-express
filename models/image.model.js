@@ -8,6 +8,10 @@ const ImageSchema = new mongoose.Schema({
     image_url: {
         type: String,
         require: true
+    },
+    time: {
+        type: Date, 
+        default: Date.now
     }
 });
 

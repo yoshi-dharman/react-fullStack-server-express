@@ -9,6 +9,13 @@ app.get('/', (req, res) => {
     .catch(e => res.status(500).send(e));
 });
 
+app.post('/file/', (req, res) => {
+    console.log(req.body.file);
+    res.send({
+        message: req.body.file
+    })
+})
+
 app.get('/:id', (req, res) => {
     Image.find(
         {"_id": req.params.id}
@@ -16,6 +23,7 @@ app.get('/:id', (req, res) => {
     .then(result => res.send(result))
     .catch(e => res.status(500).send(e));
 });
+
 
 app.post('/', (req, res) => {
     Image.create(req.body)
