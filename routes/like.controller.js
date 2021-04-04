@@ -9,13 +9,13 @@ app.get('/', (req, res) => {
     .catch(e => res.status(500).send(e));
 });
 
-app.get('/byimage/:id', (req, res) => {
-    Like.find(
-        {"image_id" : req.params.id}
-    , "-__v")
-    .then(result => res.send(result))
-    .catch(e => res.status(500).send(e));
-});
+// app.get('/byimage/:id', (req, res) => {
+//     Like.find(
+//         {"image_id" : req.params.id}
+//     , "-__v")
+//     .then(result => res.send(result))
+//     .catch(e => res.status(500).send(e));
+// });
 
 app.post('/byimage', (req, res) => {
     Like.find(
