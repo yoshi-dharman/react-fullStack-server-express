@@ -12,9 +12,9 @@ router.use('/auth', authRouter);
 
 router.use('/user', userRouter);
 
-router.use('/like', likeRouter);
-router.use('/comment', commentRouter);
 router.use('/image', imageRouter);
+router.use('/comment', commentRouter);
+router.use('/like', verifyToken, likeRouter);
 // router.use(verifyToken);
 
 module.exports = router;

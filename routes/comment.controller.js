@@ -1,5 +1,6 @@
 const express = require('express');
 const { Comment } = require('../models/');
+const verifyToken = require("../middleware/authorization");
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.get('/:id', (req, res) => {
     .catch(e => res.status(500).send(e));
 });
 
-app.post('/', (req, res) => {
+app.post('/', verifyToken, (req, res) => {
     Comment.create(req.body)
     .then(result => res.send(result))
     .catch(e => res.status(500).send(e));
